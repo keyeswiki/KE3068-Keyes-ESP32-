@@ -500,7 +500,7 @@ ESP32需要3.3V-5V电源，在本项目中，我们通过用USB线将ESP32和电
  * 文件名 : 点亮LED
  * 描述 : 点亮一盏灯.
 */
-##define LED_BUILTIN 15
+#define LED_BUILTIN 15
 
 // 复位或单板上电时，setup功能只运行一次
 void setup() {
@@ -592,7 +592,7 @@ void loop() {
  * 文件名 : LED 闪烁
  * 描述 : 让led闪烁.
 */
-##define PIN_LED   15   //定义led引脚
+#define PIN_LED   15   //定义led引脚
 
 // 复位或单板上电时，setup功能只运行一次
 void setup() {
@@ -684,7 +684,7 @@ PWM占空比越长，输出功率越高。既然我们了解了这种关系，�
 
 ![图片不存在](./Arduino/media/c6afada712f786a0827ced2172fed124.png)
 
-其中比特的最大值为31。例如,生成PWM的8位精度(28 = 256。取值范围为0 ~ 255)，最大频率为80,000,000/255 = 312,500Hz。)
+其中比特的最大值为31。例如: 生成PWM的8位精度(2ˆ8 = 256。取值范围为0 ~ 255)，最大频率为80,000,000/255 = 312,500Hz。)
 
 **4.项目接线图：** 
 
@@ -702,10 +702,10 @@ PWM占空比越长，输出功率越高。既然我们了解了这种关系，�
  * 文件名 : 呼吸灯
  * 描述 : 让led灯像呼吸一样忽亮忽灭.
 */
-##define PIN_LED   15   //定义led引脚
-##define CHN       0   //定义PWM通道
-##define FRQ       1000  //定义PWM频率
-##define PWM_BIT   8     //定义PWM精度
+#define PIN_LED   15   //定义led引脚
+#define CHN       0   //定义PWM通道
+#define FRQ       1000  //定义PWM频率
+#define PWM_BIT   8     //定义PWM精度
 void setup() {
   ledcSetup(CHN, FRQ, PWM_BIT); //设置PWM通道
   ledcAttachPin(PIN_LED, CHN);  //将led引脚连接到PWM通道
@@ -780,9 +780,9 @@ void loop() {
  * 文件名  : 交通灯
  * 描述 : 模拟交通灯.
 */
-##define PIN_LED_RED   0   //定义红色引脚
-##define PIN_LED_YELLOW   2   //定义黄色引脚
-##define PIN_LED_GREEN  15   //定义绿色引脚
+#define PIN_LED_RED   0   //定义红色引脚
+#define PIN_LED_YELLOW   2   //定义黄色引脚
+#define PIN_LED_GREEN  15   //定义绿色引脚
 
 void setup() {
   pinMode(PIN_LED_RED, OUTPUT);
@@ -1307,19 +1307,19 @@ delay(1000);
  * 文件名  : 四位数码管
  * 描述 : 四位数管显示从0到9999的数字。
 */
-##define d_a 18   //定义数码管a至引脚18
-##define d_b 13
-##define d_c 2
-##define d_d 16
-##define d_e 17
-##define d_f 19
-##define d_g 0
-##define d_dp 4
+#define d_a 18   //定义数码管a至引脚18
+#define d_b 13
+#define d_c 2
+#define d_d 16
+#define d_e 17
+#define d_f 19
+#define d_g 0
+#define d_dp 4
 
-##define G1 21   //定义第一组nixtube G1到引脚21
-##define G2 22
-##define G3 14
-##define G4 15
+#define G1 21   //定义第一组nixtube G1到引脚21
+#define G2 22
+#define G3 14
+#define G4 15
 
 //数码管0-F码值
 unsigned char num[17][8] =
@@ -1763,6 +1763,8 @@ ESP32上只有32个IO端口，我们如何点亮大量的led呢? 有时可能会
 
 **74HC595N芯片：** 简单来说就是具有8 位移位寄存器和一个存储器，以及三态输出功能。移位寄存器和存储器同步于不同的时钟，数据在移位寄存器时钟SCK的上升沿输入，在存储寄存器时钟RCK的上升沿进入的存储寄存器中去。如果两个时钟连在一起，则移位寄存器总是比存储寄存器早一个脉冲。移位寄存器有一个串行移位输入端（SI）和一个用于级联的串行输出端（SQH）,8位移位寄存器可以异步复位（低电平复位），存储寄存器有一个8位三态并行的总线输出，当输出使能（OE）被使能（低电平有效）将存储寄存器中输出至74HC595N的引脚（总线）。
 
+![Img](./media/img-20241115081748.png)
+
 **引脚说明：**
 
 | 引脚： | 引脚说明： |
@@ -1906,7 +1908,7 @@ void writeTo595(int order, byte _data ) {
  * 文件名   : 有源蜂鸣器
  * 描述 : 有源蜂鸣器鸣叫.
 */
-##define buzzerPin  15   //定义蜂鸣器引脚
+#define buzzerPin  15   //定义蜂鸣器引脚
 
 void setup ()
 {
@@ -1979,15 +1981,15 @@ void loop ()
  * 文件名   : 无源蜂鸣器
  * 描述 : 无源蜂鸣器发出警报.
 */
-##define LEDC_CHANNEL_0 0
+#define LEDC_CHANNEL_0 0
 
 // LEDC定时器采用13位精度
 
-##define LEDC_TIMER_13_BIT  13
+#define LEDC_TIMER_13_BIT  13
 
 // 定义工具I/O端口
 
-##define BUZZER_PIN  15
+#define BUZZER_PIN  15
 
 //创建一个音乐旋律列表
 
@@ -2122,8 +2124,8 @@ void loop() {
  * 文件名  : 小台灯
  * 描述 : 做一个小台灯.
 */
-##define PIN_LED    4
-##define PIN_BUTTON 15
+#define PIN_LED    4
+#define PIN_BUTTON 15
 bool ledState = false;
 
 void setup() {
@@ -2194,7 +2196,9 @@ void reverseGPIO(int pin) {
 
 ![图片不存在](./Arduino/media/966683cc81a185103df1862a16d7a844.png)
 
-倾斜开关也叫数字开关，里面有一个可以滚动的金属球，采用金属球滚动与底部导电板接触的原理来控制电路的通断。倾斜开关是滚珠型倾斜感应单方向性触发开关，当倾斜传感器向触发端（两根金属脚端）倾斜时，倾斜开关处于闭路状态，模拟端口的电压约为5V(二进制数为1023)，这样，LED会亮起。当倾斜开关在水平位置或向另一端倾斜时，倾斜开关处于开路状态，模拟端口的电压约为0V(0二进制)，LED将会关闭。在程序中，我们根据模拟端口的电压值，是否大于2.5V(512二进制)来判断开关是开还是关。
+倾斜开关也叫数字开关或球形开关，里面有一个金属球。它用于检测小角度的倾斜。
+
+原理很简单：当开关倾斜一定角度时，里面的球会向下滚动，接触到连接到外面引脚的两个触点，从而触发电路。否则，球将远离触点，从而断开电路。
 
 这里用倾斜开关的内部结构来说明它是如何工作的，显示如下图：
 
@@ -2225,7 +2229,7 @@ void reverseGPIO(int pin) {
  * 文件名  : 倾斜和LED
  * 描述 : 倾斜开关和四个led模拟沙漏.
 */
-##define SWITCH_PIN  15  // 倾斜开关连接Pin15
+#define SWITCH_PIN  15  // 倾斜开关连接Pin15
 byte switch_state = 0;
 void setup()
 {
@@ -2364,9 +2368,9 @@ Serial.println(switch_state);
  * 文件名  : 防盗报警器
  * 描述 : 人体红外传感器蜂鸣器和LED模拟防盗报警.
 */
-##define buzzerPin   2   // 蜂鸣器的引脚
-##define ledPin   0     // LED的引脚
-##define pirPin   15     // PIR运动传感器的引脚
+#define buzzerPin   2   // 蜂鸣器的引脚
+#define ledPin   0     // LED的引脚
+#define pirPin   15     // PIR运动传感器的引脚
 byte pirStat = 0;   // PIR运动传感器的状态
 void setup() {
  pinMode(buzzerPin, OUTPUT); 
@@ -2489,7 +2493,7 @@ void loop()
  * 文件名  : LCD 128*32
  * 描述 : LCD 128*32显示字符串
 */
-##include "lcd128_32_io.h"
+#include "lcd128_32_io.h"
 
 //创建lCD128 *32引脚，sda--->21， scl--->22
 lcd lcd(21, 22);
@@ -2631,9 +2635,9 @@ L293D芯片：L293D是一种直流电动驱动IC，在一些机器人项目中�
  * 文件名  : 小风扇
  * 描述 : 小风扇逆时针旋转，停止，顺时针旋转，停止，循环。
 */
-##define IN1 2  // L293D的IN1引脚
-##define IN2 15  //L293D的IN2引脚
-##define ENA_pwm 0  //L293D的ENA-pwm引脚
+#define IN1 2  // L293D的IN1引脚
+#define IN2 15  //L293D的IN2引脚
+#define ENA_pwm 0  //L293D的ENA-pwm引脚
 void setup()
 {
 pinMode(IN1,OUTPUT); //设置N1为OUTPUT
@@ -2728,7 +2732,7 @@ delay(2000);
  * 文件名  : 舵机转动
  * 描述 : 控制舵机进行清扫
 */
-##include <ESP32Servo.h>
+#include <ESP32Servo.h>
 
 Servo myservo;  // 创建舵机对象来控制舵机
 
@@ -2969,7 +2973,7 @@ LED：![图片不存在](./Arduino/media/325f351a1cc5c9af86988ddafd03fa19.png)
  * 文件名  : 继电器
  * 描述 : 继电器开与关.
 */
-##define  Relay  15 // 定义数字15
+#define  Relay  15 // 定义数字15
 void setup()
 {
 pinMode(Relay, OUTPUT); // 将“继电器”设置为“输出”
@@ -3044,6 +3048,7 @@ delay(1000); // 延时 1 s
 分节2: (3.3/4095)V—2*(3.3/4095)V 范围内的模拟量对应于数字1;
 
 ......
+
 下面的模拟将被相应地划分。换算公式如下：
 
 ![图片不存在](./Arduino/media/66f4a644cdb895d4a7910a3f1ac90ccd.png)
@@ -3077,7 +3082,7 @@ ESP32有16个引脚，可以用来测量模拟信号。GPIO引脚序列号和模
  * 文件名   : 读取电位器模拟值
  * 描述 : ADC,DAC和电压的基本用法
 */
-##define PIN_ANALOG_IN  36  //电位器的引脚
+#define PIN_ANALOG_IN  36  //电位器的引脚
 
 void setup() {
   Serial.begin(115200);
@@ -3119,9 +3124,9 @@ void loop() {
  * 文件名  : 调光灯
  * 描述 : 通过电位器控制LED的亮度.
 */
-##define PIN_ANALOG_IN    36  //电位器的引脚
-##define PIN_LED     15  // LED的引脚
-##define CHAN            0
+#define PIN_ANALOG_IN    36  //电位器的引脚
+#define PIN_LED     15  // LED的引脚
+#define CHAN            0
 void setup() {
   ledcSetup(CHAN, 1000, 12);
   ledcAttachPin(PIN_LED, CHAN);
@@ -3196,7 +3201,7 @@ void loop() {
  * 文件名  : 读取火焰传感器的模拟值
  * 描述 : ADC,DAC和电压的基本用法
 */
-##define PIN_ANALOG_IN  36  //火焰传感器的引脚
+#define PIN_ANALOG_IN  36  //火焰传感器的引脚
 
 void setup() {
   Serial.begin(115200);
@@ -3240,9 +3245,9 @@ void loop() {
  * 文件名 : 火焰警报
  * 描述 : 通过火焰传感器控制蜂鸣器和LED.
 */
-##define PIN_ADC0      36  //火焰传感器的引脚
-##define PIN_LED       15  // LED的引脚
-##define PIN_BUZZER    4  // 蜂鸣器的引脚
+#define PIN_ADC0      36  //火焰传感器的引脚
+#define PIN_LED       15  // LED的引脚
+#define PIN_BUZZER    4  // 蜂鸣器的引脚
 
 void setup() {
   pinMode(PIN_LED, OUTPUT);
@@ -3326,7 +3331,7 @@ void loop() {
  * 文件名  : 读取光敏传感器的模拟值
  * 描述 : ADC的基本用法
 */
-##define PIN_ANALOG_IN  36  //光敏传感器的引脚
+#define PIN_ANALOG_IN  36  //光敏传感器的引脚
 
 void setup() {
   Serial.begin(115200);
@@ -3368,11 +3373,11 @@ void loop() {
  * 文件名  : 夜光灯
  * 描述 : 通过光敏传感器控制LED亮度.
 */
-##define PIN_ANALOG_IN    36  // 光敏传感器的引脚
-##define PIN_LED     15  // LED的引脚
-##define CHAN            0
-##define LIGHT_MIN       372
-##define LIGHT_MAX       2048
+#define PIN_ANALOG_IN    36  // 光敏传感器的引脚
+#define PIN_LED     15  // LED的引脚
+#define CHAN            0
+#define LIGHT_MIN       372
+#define LIGHT_MAX       2048
 void setup() {
   ledcSetup(CHAN, 1000, 12);
   ledcAttachPin(PIN_LED, CHAN);
@@ -3436,9 +3441,9 @@ void loop() {
  * 文件名  : 人体感应灯
  * 描述 : 通过光敏传感器和PIR运动传感器控制LED.
 */
-##define PIN_ADC0  36   //光敏传感器的引脚
-##define PIN_LED   4  // LED的引脚
-##define pirPin   15     // PIR传感器的引脚
+#define PIN_ADC0  36   //光敏传感器的引脚
+#define PIN_LED   4  // LED的引脚
+#define pirPin   15     // PIR传感器的引脚
 byte pirStat = 0;   // PIR传感器的状态
 void setup() {
   Serial.begin(115200);
@@ -3701,7 +3706,7 @@ void loop() {
  * 文件名  : 温湿度传感器
  * 描述 : 使用XHT11测量温湿度。将结果打印到串口.
 */
-##include "xht11.h"
+#include "xht11.h"
 //gpio13
 xht11 xht(13);
 
@@ -3749,8 +3754,8 @@ void loop() {
  * 文件名  : 温湿度计
  * 描述 : LCD显示温度和湿度的数值.
 */
-##include "xht11.h"
-##include "lcd128_32_io.h"
+#include "xht11.h"
+#include "lcd128_32_io.h"
 
 //gpio13
 xht11 xht(13);
@@ -4027,7 +4032,7 @@ T1，T2是开尔文温度(绝对温度)，开尔文温度=273.15 +摄氏温度�
  * 文件名 : 热敏电阻
  * 描述 : 读取热敏电阻的阻值.
 */
-##define PIN_ANALOG_IN   36
+#define PIN_ANALOG_IN   36
 void setup() {
   Serial.begin(115200);
 }
@@ -4073,9 +4078,9 @@ void loop() {
  * 文件名  : 温度仪表
  * 描述 : LCD显示热敏电阻的温度.
 */
-##include "lcd128_32_io.h"
+#include "lcd128_32_io.h"
 
-##define PIN_ANALOG_IN   36
+#define PIN_ANALOG_IN   36
 
 lcd lcd(21, 22); //创建lCD128 *32引脚，sda->21， scl->22
 
@@ -4173,7 +4178,7 @@ void loop() {
  * 文件名  : 4x4矩阵键盘显示 
  * 描述 : 获取矩阵键盘的值
 */
-##include <Keypad.h>
+#include <Keypad.h>
 
 //定义键盘按钮上的符号
 char keys[4][4] = {
@@ -4245,8 +4250,8 @@ void loop() {
  * 文件名 : 密码锁
  * 描述 : 制作一个简单的密码锁.
 */
-##include <Keypad.h>
-##include <ESP32Servo.h>
+#include <Keypad.h>
+#include <ESP32Servo.h>
 
 // 定义键盘按钮上的符号
 char keys[4][4] = {
@@ -4380,10 +4385,10 @@ void loop() {
  * 文件名  : 解码的红外信号
  * 描述 : 红外遥控器解码后通过串口打印出来.
 */
-##include <Arduino.h>
-##include <IRremoteESP8266.h>
-##include <IRrecv.h>
-##include <IRutils.h>
+#include <Arduino.h>
+#include <IRremoteESP8266.h>
+#include <IRrecv.h>
+#include <IRutils.h>
 
 const uint16_t recvPin = 0; // 红外接收引脚
 IRrecv irrecv(recvPin);      // 创建用于接收器的类对象
@@ -4431,10 +4436,10 @@ void loop() {
  * 文件名  : 红外控制声音和LED
  * 描述 : 红外遥控控制RGB和有源蜂鸣器.
 */
-##include <Arduino.h>
-##include <IRremoteESP8266.h>
-##include <IRrecv.h>
-##include <IRutils.h>
+#include <Arduino.h>
+#include <IRremoteESP8266.h>
+#include <IRrecv.h>
+#include <IRutils.h>
 
 const uint16_t recvPin = 0; // 红外接收引脚
 IRrecv irrecv(recvPin);      // 创建用于接收器的类对象
@@ -4605,7 +4610,7 @@ void handleControl(unsigned long value) {
  * 文件名 : 经典的蓝牙
  * 描述 : ESP32通过蓝牙与手机通信，并通过串口打印手机数据
 */
-##include "BluetoothSerial.h"
+#include "BluetoothSerial.h"
 
 BluetoothSerial SerialBT;
 String buffer;
@@ -4697,9 +4702,9 @@ void loop() {
           当手机发送“LED_on”时，ESP32的LED灯就会亮起.
           当手机发送“LED_off”时，ESP32的LED灯将关闭.
 */
-##include "BluetoothSerial.h"
-##include "string.h"
-##define LED 15
+#include "BluetoothSerial.h"
+#include "string.h"
+#define LED 15
 BluetoothSerial SerialBT;
 char buffer[20];
 static int count = 0;
@@ -4790,7 +4795,7 @@ LED的现象：
  * 文件名  : WiFi Station 模式
  * 模式 : 使用ESP32连接到路由器
 */
-##include <WiFi.h> //包含ESP32的WiFi Library头文件.
+#include <WiFi.h> //包含ESP32的WiFi Library头文件.
 
 //请输入正确的路由器名称和密码.
 const char *ssid_Router     = "ChinaNet-2.4G-0DF0"; //输入路由器名称
@@ -4850,7 +4855,7 @@ void loop() {
  * 文件名  : WiFi AP
  * 描述 : 设置ESP32打开接入点
 */
-##include <WiFi.h> //包含ESP32的WiFi Library头文件.
+#include <WiFi.h> //包含ESP32的WiFi Library头文件.
 
 const char *ssid_AP     = "ESP32_Wifi"; //输入AP名称
 const char *password_AP = "12345678"; //输入AP密码
@@ -4917,7 +4922,7 @@ void loop() {
  * 文件名 : WiFi AP+Station
  * 描述 : ESP32连接到用户的路由器，打开一个接入点
 */
-##include <WiFi.h>
+#include <WiFi.h>
  
 const char *ssid_Router     =  "ChinaNet-2.4G-0DF0";  //输入路由器名称
 const char *password_Router =  "ChinaNet@233";  //输入路由器密码
@@ -5042,10 +5047,10 @@ b.在搜索框输入**keyes link**，点击搜索，出现下载界面，点击�
  * 描述 : Wifi模块测试Wifi ip
 */
 
-##include <Arduino.h>
-##include <WiFi.h>
-##include <ESPmDNS.h>
-##include <WiFiClient.h>
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include <WiFiClient.h>
 
 String item = "0";
 const char* ssid = "ChinaNet-2.4G-0DF0";
@@ -5193,23 +5198,23 @@ void loop() {
  * 文件名  : WiFi 智能家居.
  * 描述 : WiFi APP控制多个传感器/模块工作，实现WiFi智能家居的效果.
 */
-##include <Arduino.h>
-##include <WiFi.h>
-##include <ESPmDNS.h>
-##include <WiFiClient.h>
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include <WiFiClient.h>
 
-##include "xht11.h"
+#include "xht11.h"
 //gpio15
 xht11 xht(15);
 unsigned char dht[4] = {0, 0, 0, 0};
 
-##include <ESP32Servo.h>
+#include <ESP32Servo.h>
 Servo myservo;
 int servoPin = 4;
-##define Relay  32
+#define Relay  32
 
-##define trigPin  14
-##define echoPin  27
+#define trigPin  14
+#define echoPin  27
 
 int distance1;
 String dis_str;
