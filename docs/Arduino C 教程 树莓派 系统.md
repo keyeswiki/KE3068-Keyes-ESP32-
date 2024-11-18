@@ -562,6 +562,8 @@ F - 用于从板接收串行数据并将串行数据发送到板的串行监视
 
 **5.导入Arduino C 库文件**
 
+<span style="color: rgb(0, 209, 0); background: rgb(255, 251, 0);">特别提醒：库文件在上面 **<span style="color: rgb(255, 76, 65);">资料下载</span>** 处提供有，请下载并且安装好库文件。</span>
+
 在开始课程之前我们还需要安装课程里面代码需要的Arduino C 库文件。
 
 **5.1.什么是库文件?**
@@ -5294,6 +5296,10 @@ b. 在搜索框输入**keyes link**，点击搜索，出现下载界面，点击
 
 **3.项目代码：**
 
+<span style="background: rgb(255, 251, 0);"><span style="color: rgb(255, 76, 0);">**特别注意：**<span style="color: rgb(255, 76, 0);"></span>确保计算机网络，手机/平板的网络，ESP32主板，路由器，代码中输入你自己的WiFi名称和密码都必须是在同一个局域网（WiFi）下。</span></span>
+
+![Img](./media/img-202411180844190.png)
+
 ```
 //**********************************************************************************
 /*
@@ -5367,6 +5373,10 @@ void loop() {
 <span style="color: rgb(255, 76, 65);">特别注意：</span>需要先将实验代码![图片不存在](./Arduino/media/e738c0e72f68d100db4f47b8772c9a4a.png)中的用户Wifi名称和用户Wifi密码改成你们自己的Wifi名称和Wifi密码。
 
 **5.实验现象**
+
+<span style="background: rgb(255, 251, 0);"><span style="color: rgb(255, 76, 0);">**特别注意：**<span style="color: rgb(255, 76, 0);"></span>确保计算机网络，手机/平板的网络，ESP32主板，路由器，代码中输入你自己的WiFi名称和密码都必须是在同一个局域网（WiFi）下。</span></span>
+
+![Img](./media/img-202411180844190.png)
 
 确认程序代码中的Wifi名称和Wifi密码修改正确后，编译并上传代码到 ESP32主板上。
 
@@ -5657,6 +5667,10 @@ int checkdistance() {
 <span style="color: rgb(255, 76, 65);">特别注意：</span>需要先将实验代码![图片不存在](./Arduino/media/e738c0e72f68d100db4f47b8772c9a4a.png)中的用户Wifi名称和用户Wifi密码改成你们自己的Wifi名称和Wifi密码。
 
 **7. 实验现象：**
+
+<span style="background: rgb(255, 251, 0);"><span style="color: rgb(255, 76, 0);">**特别注意：**<span style="color: rgb(255, 76, 0);"></span>确保计算机网络，手机/平板的网络，ESP32主板，路由器，代码中输入你自己的WiFi名称和密码都必须是在同一个局域网（WiFi）下。</span></span>
+
+![Img](./media/img-202411180844190.png)
 
 确认程序代码中的Wifi名称和Wifi密码修改正确后，编译并上传代码到 ESP32主板上。
 
